@@ -1,0 +1,31 @@
+title: Non-ASCII Characters in Identity Directory Events
+id: 5a2b8e9c-1d4f-4a7b-9c3d-8e5f2a1b4c6d
+status: experimental
+description:
+    Detects potential obfuscation or directory anomalies by identifying the presence 
+    of non-ASCII characters (unicode codepoints > 127) in account-related fields 
+    (UPN and SAM account names). This matches the logic of identifying characters 
+    outside the standard 0-127 range.
+author: Juana Fan
+date: 2026/02/16
+level: medium
+logsource:
+    product: m365
+    service: identity_directory_events
+fields:
+    - TargetAccountUpn
+    - AccountUpn
+    - AccountName
+detection:
+    selection:
+        - TargetUserName|re: '[^\x00-\x7F]'
+        - UserPrincipalName|re: '[^\x00-\x7F]'
+        - SamAccountName|re: '[^\x00-\x7F]'
+        - DisplayName|re: '[^\x00-\x7F]'
+    condition: selection
+falsepositives:
+    - Legitimate international characters in multi-national organizations
+    - Service accounts with localized naming conventions
+tags:
+    - attack.defense_evasion
+    - attack.t1036
