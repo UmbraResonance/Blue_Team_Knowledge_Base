@@ -46,3 +46,5 @@ TLS,Intel,"tls.x509.Subject contains ""KEYWORD""",Cert Analysis: Hunt for suspic
 TLS,Intel,"tls.x509.Issuer contains ""KEYWORD""",Cert Issuer: Identify free/automated SSL providers commonly abused by Phishing/C2.
 TLS,Indicator,tls.record.version == 0x0301,Protocol Version: Detect legacy TLS 1.0 traffic. Indicates outdated systems or malware beacons.
 TLS,Recon,tls.alert_message.level == 2,Fatal Alert: Detect failed handshakes. High volume indicates SSL Scanning.
+NTLM,Auth,"ntlmssp.auth.username == ""KEYWORD""",NTLM Hunt: Search for specific user authentication in PCAP.
+Kerberos,Auth,"kerberos.CNameString == ""KEYWORD""",Kerberos Hunt: Search for specific client ticket requests.
