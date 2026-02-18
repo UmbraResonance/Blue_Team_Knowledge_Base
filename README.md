@@ -23,6 +23,7 @@ I built this repository to solve specific challenges I encounter in daily operat
 3.  **Strict SOPs:** Standardized templates to ensure findings are recorded with legal and forensic precision (Chain of Custody).
 4.  **Engineering-First Approach:** Detections are not just "queries"; they follow a strict Detection Development Lifecycle (DDLC) to ensure quality, vendor-neutrality, and verifiable results.
 5. **First-Principles Thinking:** Operational commands (01, 06) are backed by deep OS internals knowledge (08). We don't just run queries; we understand how the kernel generates the artifacts (e.g., Access Tokens, SACLs).
+6. **Force Multiplication:** Codifying manual tradecraft and research (01-08) into automated, reusable modules (09) to ensure defense operates at machine speed.
 
 ---
 
@@ -38,6 +39,7 @@ I built this repository to solve specific challenges I encounter in daily operat
 | **[`06_Tool_Vault`](./06_Tool_Command_Vault/)** | **Command Syntax Library** | Pure command reference (KAPE, Volatility, Zimmerman Tools). |
 | **[`07_Reporting`](./07_Reporting_Templates/)** | **Documentation & Evidence** | **Operational Core.** Timeline trackers, Evidence logs, and Final Reports. |
 | **[`08_Underlying_Principles`](./08_Underlying_Principles/)** | **OS Internals & Theory** | **The "Why".** Deep dives into Windows Internals (Tokens, SACLs) to support logic construction. |
+| **[`09_Automation_Vault`](./09_Automation_Vault/)** | **Security Automation Hub** | **Scaling Defense.** Modular scripts for Identity, DFIR, and Detection-as-Code pipelines. |
 
 ---
 
@@ -66,6 +68,7 @@ How to utilize this repository during a live incident:
 ### Continuous Improvement (The Loop):
 * **Gap Analysis:** If a detection was missed, verify existing logic in `01_Hunting`.
 * **Deep Dive:** Consult 08_Underlying_Principles to understand the theoretical mechanism before writing new rules.
+* **Engineering:** Codify verified hunting and response logic into **09_Automation_Vault** to automate repetitive tasks and ensure systemic prevention.
 
 ---
 
