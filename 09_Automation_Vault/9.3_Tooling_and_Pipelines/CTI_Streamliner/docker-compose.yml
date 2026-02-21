@@ -1,0 +1,19 @@
+# Docker Compose file for deploying FreshRSS
+# Version: 3.8  
+services:
+	freshrss:
+		image: freshrss/freshrss:latest
+		container_name: freshrss
+		ports:
+			- "8889:80"
+		environment:
+			- TZ=Etc/UTC
+			- CRON_MIN=*/30
+		volumes:
+			- freshrss_data:/var/www/FreshRSS/data
+			- freshrss_extensions:/var/www/FreshRSS/extensions
+		restart: unless-stopped
+
+volumes:
+	freshrss_data:
+	freshrss_extensions:
