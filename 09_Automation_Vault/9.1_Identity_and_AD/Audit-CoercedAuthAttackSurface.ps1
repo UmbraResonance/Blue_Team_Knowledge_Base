@@ -4,12 +4,13 @@
 
 .INPUTS
     Remote RPC Service States (Spooler, EFS, FSRVP)
+    AD CS Web Enrollment Services (W3SVC, CertSvc)
 
 .OUTPUTS
-    Surface exposure report for coercion attacks (e.g., PrinterBug, PetitPotam)
+    Surface exposure report for coercion attacks (e.g., PrinterBug, PetitPotam) and ESC8 relay vulnerabilities
 
 .USE CASE
-    Identify and mitigate targets vulnerable to NTLM Relay via forced authentication
+    Identify and mitigate targets vulnerable to NTLM Relay via forced authentication and HTTP endpoints
 
 .SECURITY NOTE
     Core detection engine intentionally omitted
@@ -38,5 +39,10 @@ $AttackVectors = @{
 # 4. Output Results
 # [CODE REMOVED FOR SECURITY]
 # Logic: Compiles and formats the audit results into a summary table for analysis.
+
+# 5. ESC8 (AD CS Relay) Attack Surface Audit
+# [CODE REMOVED FOR SECURITY]
+# Logic: Locates Enterprise Certificate Authorities in the domain and evaluates the exposure 
+# of HTTP enrollment endpoints (IIS/W3SVC and CertSvc) vulnerable to NTLM relay attacks.
 
 Write-Warning "Detailed vulnerability discovery and service auditing logic is restricted. Please contact the author for the full implementation."
